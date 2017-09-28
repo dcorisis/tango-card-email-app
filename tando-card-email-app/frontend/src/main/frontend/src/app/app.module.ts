@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 
@@ -23,7 +24,8 @@ import { AppComponent } from './app.component';
     SharedModule,
     PagesModule,
     PageLayoutsModule,
-    RouterModule
+    RouterModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
