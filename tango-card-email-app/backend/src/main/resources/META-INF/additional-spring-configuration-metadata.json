@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "fromEmail",
+    "type": "java.lang.String",
+    "description": "the email address all emails will be sent from"
+  },
+  {
+    "name": "mailGunApiKey",
+    "type": "java.lang.String",
+    "description": "api key for mailgun account"
+  },
+  {
+    "name": "mailGunDomain",
+    "type": "java.lang.String",
+    "description": "domain for mail gun"
+  }
+]}
