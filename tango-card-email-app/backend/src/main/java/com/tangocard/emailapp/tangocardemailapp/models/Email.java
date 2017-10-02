@@ -3,6 +3,13 @@ package com.tangocard.emailapp.tangocardemailapp.models;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,14 +24,39 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 //@Configuration
+@Entity
+@Table(name = "email")
 public class Email implements Serializable {
+	
+	private static final long serialVersionUID = -3009157732242241606L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
+	@Column(name = "to_email")
 	private String toEmail;
+	@Column(name = "from_email")
 	private String fromEmail;
+	@Column(name = "date_sent")
 	private String dateSent;
+	@Column(name = "content")
 	private String content;
+	@Column(name = "sent")
 	private boolean sent;
+	@Column(name = "mail_gun_error_code")
 	private int mailGunErrorCode;
+	@Column(name = "send_grid_error_code")
 	private int sendGridErrorCode;
+	
+	protected Email() {
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("Email[id=%d, toEmail='%s', fromEmail='%s', dateSent='%s', content='%s', sent='%b', mailGunErrorCode='%d', sendGridErrorCode='%d']",
+								id, toEmail, fromEmail, dateSent, content, sent, mailGunErrorCode, sendGridErrorCode);
+	}
 	
 	public String getToEmail() {
 		return this.toEmail;

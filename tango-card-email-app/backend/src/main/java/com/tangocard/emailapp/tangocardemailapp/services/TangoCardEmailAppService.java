@@ -16,6 +16,7 @@ import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
 import com.tangocard.emailapp.tangocardemailapp.models.Email;
+
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -59,10 +60,10 @@ public class TangoCardEmailAppService {
 		    		newEmail.setSent(false);
 		    }
 		}
-		DateFormat dateFormat = new SimpleDateFormat("MMMM/dd/yyyy h:mm:ss a z");
+		DateFormat dateFormat = new SimpleDateFormat("MMMM dd,yyyy h:mm:ss a z");
 		Date date = new Date();
 		newEmail.setDateSent(dateFormat.format(date));
-		
 		return newEmail;
 	}
+	
 }

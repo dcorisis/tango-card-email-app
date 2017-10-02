@@ -1,3 +1,49 @@
-<p>
-  mail-history works!
-</p>
+
+<div class="container">
+  <div class="row">
+      <div class="col-1 grid-cell">
+          Sent
+      </div>
+      <div class="col-3 grid-cell">
+          To Email
+      </div>
+      <div class="col-4 grid-cell">
+          Content
+      </div>
+      <div class="col-4 grid-cell">
+          Date
+      </div>
+  </div>
+</div>
+
+<div *ngFor="let item of currentPagedEmails" class="container">
+  
+    <div class="row" (click)="openEmailDetails(item.id)">
+        <div class="col-1 grid-cell" *ngIf="item.sent">
+             ✔ 
+        </div>
+        <div class="col-1 grid-cell" *ngIf="!item.sent">
+            ❌
+        </div>
+        <div class="col-3 grid-cell" >
+            {{item.toEmail}}
+        </div>
+        <div class="col-4 grid-cell">
+            {{item.content}}
+        </div>
+        <div class="col-4 grid-cell">
+            {{item.dateSent}}
+        </div>
+    </div>
+</div>
+
+<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="input-group">
+      <input type="text" [(value)]="currentPage" (change)="updatePage($event)" style="width: 30px; text-align: center">
+      <span class="input-group-addon">/{{totalPages}}</span>
+    </div>
+    <div class="btn-group" role="group" aria-label="First group">
+      <button type="button" class="btn btn-secondary" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+      <button type="button" class="btn btn-secondary" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+</div>

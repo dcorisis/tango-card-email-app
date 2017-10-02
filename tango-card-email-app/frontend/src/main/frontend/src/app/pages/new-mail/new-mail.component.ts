@@ -51,7 +51,7 @@ export class NewMailComponent implements OnInit {
         emailResult => {
           let email:EmailModel = emailResult;
           if(emailResult){
-            this.newEmailForm.reset();
+            //this.newEmailForm.reset();
             this.setFeedbackMessage("Email sent");
           }
           else{

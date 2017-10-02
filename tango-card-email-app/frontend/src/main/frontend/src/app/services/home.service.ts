@@ -14,4 +14,9 @@ export class HomeService {
     	let headers = new HttpHeaders({ 'Content-Type': 'application/json'});
 		return this._http.post<EmailModel>('/SendMail',JSON.stringify(newEmail),{ headers: headers } );
 	}
+	
+	public getMail():Observable<EmailModel[]> {
+		let headers = new HttpHeaders({ 'Content-Type': 'application/json'});
+		return this._http.get<EmailModel[]>('/GetMail',{ headers: headers } );
+	}
 }

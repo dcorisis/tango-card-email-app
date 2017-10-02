@@ -11,3 +11,7 @@ div .tab-content{
 .error-text {
     color: red;
 }
+
+.grid-cell{
+    border: 1px solid #d3d3d3;
+}

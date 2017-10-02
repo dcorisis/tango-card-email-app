@@ -1,4 +1,5 @@
 export class EmailModel{
+    id: number;
     dateSent: Date;
     fromEmail: string;
     toEmail: string;
