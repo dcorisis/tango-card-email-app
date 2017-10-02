@@ -19,29 +19,29 @@ As an example, the fromEmail variable should look something like this when finis
     
 You must also create an email table with the same schema described in the create script below:
 
-      -- Table: public.email
+            -- Table: public.email
 
-      -- DROP TABLE public.email;
+            -- DROP TABLE public.email;
 
-      CREATE TABLE public.email
-      (
-          id bigint NOT NULL,
-          content character varying(255) COLLATE pg_catalog."default",
-          date_sent character varying(255) COLLATE pg_catalog."default",
-          from_email character varying(255) COLLATE pg_catalog."default",
-          mail_gun_error_code integer,
-          send_grid_error_code integer,
-          sent boolean,
-          to_email character varying(255) COLLATE pg_catalog."default",
-          CONSTRAINT email_pkey PRIMARY KEY (id)
-      )
-      WITH (
-          OIDS = FALSE
-      )
-      TABLESPACE pg_default;
+            CREATE TABLE public.email
+            (
+                id bigint NOT NULL,
+                content text COLLATE pg_catalog."default",
+                date_sent character varying(255) COLLATE pg_catalog."default",
+                from_email character varying(255) COLLATE pg_catalog."default",
+                mail_gun_error_code integer,
+                send_grid_error_code integer,
+                sent boolean,
+                to_email character varying(255) COLLATE pg_catalog."default",
+                CONSTRAINT email_pkey PRIMARY KEY (id)
+            )
+            WITH (
+                OIDS = FALSE
+            )
+            TABLESPACE pg_default;
 
-      ALTER TABLE public.email
-          OWNER to postgres;
+            ALTER TABLE public.email
+                OWNER to postgres;
 
 to run:
   open command line at root of project
