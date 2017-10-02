@@ -62,7 +62,6 @@ public class TangoCardEmailAppApplication {
     @RequestMapping(value = "/GetMail")
     @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<Iterable<Email>> GetMail() {
-    	System.out.println(repository.findAll());
         return new ResponseEntity<Iterable<Email>>(repository.findAll(), HttpStatus.OK);
     }
 }
